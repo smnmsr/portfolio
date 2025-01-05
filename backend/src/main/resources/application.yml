@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: portfolio-backend
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/portfolio
+    username: postgres # test credentials (see README)
+    password: postgres # test credentials (see README)
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true

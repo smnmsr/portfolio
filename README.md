@@ -6,8 +6,6 @@ Welcome to my portfolio project! This repository showcases my skills and experie
 
 Explore the live version of this portfolio at [simon-moser.com](https://simon-moser.com).
 
----
-
 ## 🚀 Features
 
 - **Personal Portfolio**: A modern web application showcasing my past projects and skills.
@@ -15,8 +13,6 @@ Explore the live version of this portfolio at [simon-moser.com](https://simon-mo
 - **Frontend**: Built using **Angular**.
 - **Responsive Design**: Ensures compatibility across devices and screen sizes.
 - **Scalable Architecture**: Organized project structure for maintainability and scalability.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -34,8 +30,6 @@ Explore the live version of this portfolio at [simon-moser.com](https://simon-mo
 - **Version Control**: Git
 - **Hosting**: Custom domain
 
----
-
 ## 🗂️ Directory Structure
 
 ```
@@ -50,7 +44,14 @@ Explore the live version of this portfolio at [simon-moser.com](https://simon-mo
 │   └── angular.json # Angular configuration
 ```
 
----
+## 🔑 A Note on Credentials
+
+This repository contains test credentials, such as those found in the Spring Boot configuration files or the Docker Compose file. **Please note**: this is an intentional bad practice, used here solely for development and testing purposes in a controlled, containerized environment.
+
+No sensitive or production data is processed in this project, and these credentials are not intended for use in any production setting.
+
+> [!IMPORTANT]
+> Always follow secure credential management practices, such as using environment variables or secret management tools, when developing production-grade applications.
 
 ## 🚀 Getting Started
 
