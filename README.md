@@ -28,7 +28,7 @@ Explore the live version of this portfolio at [simon-moser.com](https://simon-mo
 
 ### Other Tools
 - **Version Control**: Git
-- **Hosting**: Custom domain
+- **Containerization**: Docker Compose
 
 ## 🗂️ Directory Structure
 
@@ -36,12 +36,42 @@ Explore the live version of this portfolio at [simon-moser.com](https://simon-mo
 .
 ├── LICENSE          # License information
 ├── README.md        # Project documentation
+├── docker-compose.yml # Docker Compose configuration
 ├── backend/         # Backend code with Spring Boot
-│   ├── src/         # Source files
-│   └── gradle/      # Gradle wrapper files
 ├── frontend/        # Frontend code with Angular
-│   ├── src/         # Source files
-│   └── angular.json # Angular configuration
+```
+
+## 📊 Database Structure
+
+The portfolio application uses a relational database to manage entries, categories, and tags efficiently. Below is the
+class diagram representing the database structure:
+
+```mermaid
+classDiagram
+    class PortfolioEntries {
+        int id
+        string title
+        string description
+        boolean active
+        int portfolio_category_id
+    }
+    class PortfolioCategories {
+        int id
+        string name
+    }
+    class Tags {
+        int id
+        string name
+        int tag_category_id
+    }
+    class TagCategories {
+        int id
+        string name
+    }
+
+    PortfolioEntries --> PortfolioCategories: belongsTo
+    PortfolioEntries --> Tags: many-to-many
+    Tags --> TagCategories: belongsTo
 ```
 
 Here is the **"Database Structure"** section for your README:
@@ -96,59 +126,31 @@ No sensitive or production data is processed in this project, and these credenti
 
 ## 🚀 Getting Started
 
-Follow these instructions to set up the project locally.
-
 ### Prerequisites
 
 Ensure you have the following installed:
-- **Java** (JDK 17 or later)
-- **Node.js** (v16 or later) and **npm**
-- **Gradle**
-- **Angular CLI**
 
----
+- **Docker**
+- **Docker Compose**
 
-### Backend (Spring Boot + Kotlin)
+### Running the Application
 
-1. **Navigate to the `backend` directory**:
-   ```bash
-   cd backend
-   ```
+To build and run the entire application, simply use the following command:
 
-2. **Build the project**:
-   ```bash
-   ./gradlew build
-   ```
+```bash
+docker compose up
+```
 
-3. **Run the application**:
-   ```bash
-   ./gradlew bootRun
-   ```
+This command will:
 
-4. The backend will be available at [http://localhost:8080](http://localhost:8080).
+- Build the backend and frontend.
+- Start the PostgreSQL database, Spring Boot backend, and Angular frontend.
 
----
+The application will be available at:
 
-### Frontend (Angular)
-
-1. **Navigate to the `frontend` directory**:
-   ```bash
-   cd frontend
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server**:
-   ```bash
-   ng serve
-   ```
-
-4. The frontend will be available at [http://localhost:4200](http://localhost:4200).
-
----
+- **Frontend**: [http://localhost:4200](http://localhost:4200)
+- **Backend API**: [http://localhost:8080](http://localhost:8080)
+- **Database**: Accessible on port 5432.
 
 ## 💡 What This Portfolio Demonstrates
 
@@ -157,12 +159,7 @@ Ensure you have the following installed:
 - Skills in modern development practices with Kotlin, Spring Boot, and Angular.
 - Practical experience in creating a responsive and professional web application.
 
----
-
 ## 📄 License
 
 This project is licensed under the terms of the [MIT License](./LICENSE).
 
----
-
-Feel free to explore the code and reach out if you'd like to discuss anything further!
