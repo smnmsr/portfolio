@@ -44,6 +44,47 @@ Explore the live version of this portfolio at [simon-moser.com](https://simon-mo
 │   └── angular.json # Angular configuration
 ```
 
+Here is the **"Database Structure"** section for your README:
+
+---
+
+## 📊 Database Structure
+
+The portfolio application uses a relational database to manage entries, categories, and tags efficiently. Below is the class diagram representing the database structure:
+
+```mermaid
+classDiagram
+    class PortfolioEntries {
+        int id
+        string title
+        string description
+        boolean active
+        int portfolio_category_id
+    }
+    class PortfolioCategories {
+        int id
+        string name
+    }
+    class Tags {
+        int id
+        string name
+        int tag_category_id
+    }
+    class TagCategories {
+        int id
+        string name
+    }
+    class PortfolioEntriesTags {
+        int portfolio_entry_id
+        int tag_id
+    }
+
+    PortfolioEntries --> PortfolioCategories : belongsTo
+    PortfolioEntries --> PortfolioEntriesTags : hasMany
+    PortfolioEntriesTags --> Tags : belongsTo
+    Tags --> TagCategories : belongsTo
+```
+
 ## 🔑 A Note on Credentials
 
 This repository contains test credentials, such as those found in the Spring Boot configuration files or the Docker Compose file. **Please note**: this is an intentional bad practice, used here solely for development and testing purposes in a controlled, containerized environment.
