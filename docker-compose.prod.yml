@@ -32,7 +32,7 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres # test credentials (see README)
       SPRING_DATASOURCE_PASSWORD: postgres # test credentials (see README)
     ports:
-      - '8080:8080'
+      - '50002:8080'
     networks:
       - backend
 
@@ -40,7 +40,7 @@ services:
     image: simon861/portfolio-frontend
     restart: unless-stopped
     ports:
-      - '4200:80'
+      - '50003:80'
     depends_on:
       - backend
     networks:
